@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import work.curioustools.mfl.R
 import work.curioustools.mfl.databinding.FragmentDashboardBinding
+import work.curioustools.myfirstlib.isValidEmail
 
 class DashboardFragment : Fragment() {
 
@@ -33,7 +34,7 @@ class DashboardFragment : Fragment() {
 
         val textView: TextView = binding.textDashboard
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            textView.text = it.isValidEmail().toString()
         })
         return root
     }
